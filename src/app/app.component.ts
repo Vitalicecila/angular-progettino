@@ -25,25 +25,21 @@ export class AppComponent {
   //istanzio un oggetto di tipo del servizio chuck
   constructor(private service: ChiaveService) {}
 
-  showOne(id) {
-    //console.log(id);
+  showOne(id: object) {
     this.selezione.titolo = id.titolo;
     this.selezione.corpo = id.corpo;
   }
 
-  addPostit(newPostit: postit) {
+  addPost(newPostit: postit) {
     this.service.apiKEY = this.key;
     this.savedPosts.push(newPostit);
     let newmsg: string = JSON.stringify(this.savedPosts);
     this.service
       .postData(newmsg)
-      .then(response => response.json(), error => alert(error))
-      .then(data => {
-        console.log(data);
-      });
+      .then(response => response.json(), error => alert(error));
   }
 
-  deletePost(id) {
+  deletePost(id: object) {
     this.savedPosts = this.savedPosts.filter(postit => postit != id);
     //vanno eliminati anche da importants gli eliminati da saved
     this.importants = this.savedPosts.filter(postit => postit.imp == true);
@@ -53,10 +49,7 @@ export class AppComponent {
     let newmsg: string = JSON.stringify(this.savedPosts);
     this.service
       .postData(newmsg)
-      .then(response => response.json(), error => alert(error))
-      .then(data => {
-        console.log(data);
-      });
+      .then(response => response.json(), error => alert(error));
   }
 
   mostraImp() {
@@ -77,7 +70,6 @@ export class AppComponent {
         for (let i in obj) {
           this.savedPosts.push(obj[i]);
         }
-        console.log(this.savedPosts);
         this.log = true;
         this.key = k;
       });
@@ -87,11 +79,7 @@ export class AppComponent {
     this.service.Key().then(key => {
       fetch(this.service.apiURL + '/post?key=' + key + '&msg=' + {}, {
         method: 'POST'
-      })
-        .then(response => response.json(), error => alert(error))
-        .then(data => {
-          console.log(data);
-        });
+      }).then(response => response.json(), error => alert(error));
       this.key = key;
     });
     this.log = true;

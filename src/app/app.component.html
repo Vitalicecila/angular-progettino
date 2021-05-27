@@ -1,16 +1,12 @@
 <!--se NON sei loggato-->
 <div *ngIf="log == false; else Else">
   <h2>ACCEDI A POST-IT APP</h2>
-  <app-get-key
-    (newKeyEvent)="login($event)"
-    (newAltroEvent)="getKey($event) "
-  ></app-get-key>
+  <app-get-key (newKeyEvent)="login($event)" (newAltroEvent)="getKey($event) "></app-get-key>
   <br /><br /><br /><br />
 </div>
 <!--se sei loggato-->
 <ng-template #Else>
   <h3>{{title}} {{key}}</h3>
-  <p id="noPost"></p>
   <!--se mostra solo importanti è stato cliccato-->
   <ul *ngIf="click == true; else elseBlock">
     <li *ngFor="let objImp of importants">
