@@ -1,0 +1,6 @@
+<br/><b>Aggiungi un nuovo post it</b><br/><br/>
+Titolo:<input #nuovoT/><br/><br/>
+Testo:<input #nuovoC/><br/><br/>
+Segna se importante:<input type="radio" #nuovoI/><br/><br/>
+<button (click)="createPost(nuovoT.value, nuovoC.value, nuovoI.checked);nuovoT.value='';nuovoC.value=''; nuovoI.checked= false">SALVA</button>
+<div id="alert"></div>

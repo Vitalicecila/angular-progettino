@@ -1,0 +1,36 @@
+<!--se NON sei loggato-->
+<div *ngIf="log == false; else Else">
+  <h2>ACCEDI A POST-IT APP</h2>
+  <app-get-key
+    (newKeyEvent)="login($event)"
+    (newAltroEvent)="getKey($event) "
+  ></app-get-key>
+  <br /><br /><br /><br />
+</div>
+<!--se sei loggato-->
+<ng-template #Else>
+  <h3>{{title}} {{key}}</h3>
+  <p id="noPost"></p>
+  <!--se mostra solo importanti è stato cliccato-->
+  <ul *ngIf="click == true; else elseBlock">
+    <li *ngFor="let objImp of importants">
+      <button (click)="showOne(objImp)">{{objImp.titolo}}</button>
+      <button (click)="deletePost(objImp)">&#10008;</button>
+    </li>
+    <br />
+    <button (click)="mostraAll()">MOSTRA DI NUOVO TUTTI</button>
+  </ul>
+  <!--se mostra solo importanti NON è stato cliccato-->
+  <ng-template #elseBlock>
+    <ul>
+      <button (click)="mostraImp()">MOSTRA SOLO IMPORTANTI</button>
+      <li *ngFor="let obj of savedPosts">
+        <button (click)="showOne(obj)">{{obj.titolo}}</button>
+        <button (click)="deletePost(obj)">&#10008;</button>
+      </li>
+    </ul>
+  </ng-template>
+  <app-mostra [selezioneC]="selezione"> </app-mostra>
+  <app-nuovo (newPostEvent)="addPost($event)"> </app-nuovo>
+  <br /><br />
+</ng-template>
