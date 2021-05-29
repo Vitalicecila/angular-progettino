@@ -25,7 +25,7 @@ export class AppComponent {
   //istanzio un oggetto di tipo del servizio chuck
   constructor(private service: ChiaveService) {}
 
-  showOne(id: object) {
+  showOne(id) {
     this.selezione.titolo = id.titolo;
     this.selezione.corpo = id.corpo;
   }
@@ -46,9 +46,9 @@ export class AppComponent {
     //per eliminare anche p di mostra se elimino
     this.selezione.corpo = undefined;
     this.selezione.titolo = undefined;
-    let newmsg: string = JSON.stringify(this.savedPosts);
+    let objToString: string = JSON.stringify(this.savedPosts);
     this.service
-      .postData(newmsg)
+      .postData(objToString)
       .then(response => response.json(), error => alert(error));
   }
 
