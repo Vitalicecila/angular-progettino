@@ -29,7 +29,7 @@ Sono previste due modalità di accesso:
     
 * Se l'utente inserisce una chiave inesatta o inesistente, l'errore nello scaricamento e nel parsing json di un oggetto inesistente viene mostrato in console e l'accesso viene negato
 
-**Visualizzazione** (completa/solo postit importanti)
+**Visualizzazione** 
 
 All'accesso vengono mostrati tutti i titoli dei postit dell'utente sotto forma di bottone (ciò è gestito tramite ngIf ed ngFor nel template del *component root App*); cliccando sul titolo di un postit è possibile leggerne il contenuto (questa funzionalità è gestita dal *child-component mostra*). E' inoltre possibile "chiudere" il postit cliccando sul bottone che chiama la funzione clean() definita nel mostra.component.ts. 
 
@@ -43,6 +43,7 @@ Poi, tramite la funzione addPost() del component padre, cui vengono passati i va
 L'eliminazione di un postit è gestita nell'app.component.ts tramite la funzione deletePost(), che utilizza il metodo filter per rimuovere l'oggetto dalla lista che viene mostrata e poi carica come stringa il nuovo oggetto aggiornato con una chiamata alla funzione postData() definita nel servizio.
 
 **Messaggi importanti**
+
 In fase di creazione è possibile segnare un postit come importante (questo perchè l'oggetto di classe postit prevede la proprietà "importante", che può essere true o false). Successivamente è possibile per l'utente scegliere di visualizzare solo i postit importanti, cliccando sull'apposito bottone: questo è gestito tramite la funzione mostraImp(), che utilizza il metodo filter. E' possibile anche tornare alla visualizzazione di tutti i postit, cliccando sul bottone "mostra di nuovo tutti". Il passaggio da una visualizzazione all'altra è gestito dalla var flag click.
 
 
