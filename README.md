@@ -11,6 +11,7 @@ L' *app component* è il component padre, all'interno del quale si gestiscono le
 Il *servizio chiave*, del tipo KVaaS, è responsabile della gestione delle chiamate http di tipo get e post tramite url.<br/><br/>
 
 **DETTAGLI**<br/>
+
 **Login**<br/>
 L'applicazione si apre con una schermata che mostra solo una parte del template dell'AppComponent, ovvero il form di accesso (le parti visibili e non visibili del template sono controllate da un ng if e una variabile flag)
 Sono previste due modalità di accesso: 
