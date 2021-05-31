@@ -32,7 +32,8 @@ Sono previste due modalità di accesso:
 
 **Visualizzazione** 
 
-All'accesso vengono mostrati tutti i titoli dei postit dell'utente sotto forma di bottone (ciò è gestito tramite ngIf ed ngFor nel template del *component root App*); cliccando sul titolo di un postit è possibile leggerne il contenuto (questa funzionalità è gestita dal *child-component mostra*). E' inoltre possibile "chiudere" il postit cliccando sul bottone che chiama la funzione clean() definita nel mostra.component.ts. 
+All'accesso, se ce ne sono, vengono mostrati tutti i titoli dei postit dell'utente sotto forma di bottone (ciò è gestito tramite ngIf ed ngFor nel template del *component root App*); cliccando sul titolo di un postit è possibile leggerne il contenuto (questa funzionalità è gestita dal *child-component mostra*). E' inoltre possibile "chiudere" il postit cliccando sul bottone che chiama la funzione clean() definita nel mostra.component.ts. 
+Se invece all'accesso non vengono trovati postit salvati, viene mostrata una scritta che invita a creare un primo postit cliccando sul bottone "crea "sottostante.
 
 **Aggiunta postit**
 
