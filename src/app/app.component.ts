@@ -22,7 +22,7 @@ export class AppComponent {
   log: boolean = false;
   //key globale per mostrarla accanto a "benvenuto"
   key = '';
-  //istanzio un oggetto di tipo del servizio chuck
+  //istanzio un oggetto di tipo del servizio
   constructor(private service: ChiaveService) {}
 
   showOne(id) {
