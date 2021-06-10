@@ -25,6 +25,7 @@ export class AppComponent {
   //istanzio un oggetto di tipo del servizio
   constructor(private service: ChiaveService) {}
 
+  //riempie selezione (classe postit ma vuoto) al click su un titolom poi mostra se ne occupa
   showOne(id) {
     this.selezione.titolo = id.titolo;
     this.selezione.corpo = id.corpo;
